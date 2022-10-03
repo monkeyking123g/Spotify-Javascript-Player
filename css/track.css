@@ -1,0 +1,137 @@
+/****************** track list  ******************/
+#track-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  /* justify-content: space-around; */
+}
+#container-track {
+    width: 300px;
+    /* height: 250px; */
+    max-width: 300px;
+    
+    /* Center the container in middle on horizontal axis */
+     /* margin-top: 0.5rem;
+    margin-right: 0.5rem;  */
+    padding: 1rem;
+    
+    
+  }
+.container {
+    width: 300px;
+    max-width: 300px;
+    /* max-height: 331px; */
+    /* Center the container in middle on horizontal axis */
+    margin: 1rem;
+    /* background: rgba(0, 0, 0, 0.5); */
+  }
+.card {
+    /* Change background color */
+    max-height: 331px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+.card img {
+    width: 100%;
+    border-radius: 12px;
+    height: 214px;
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Style div elements that have class equal to tag */
+.tag {
+    display: block;
+    overflow: hidden;
+    width: 268;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* width: 1rem;
+    max-height: 5px; */
+    padding: 4px 8px;
+    /* border: 1px solid #0077ff; */
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0077ff;
+}
+  /* Style button element */
+  .card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .card .play {
+    border: none;
+    padding: 12px 24px;
+    /* border-radius: 50px; */
+    font-weight: 600;
+    color: #0077ff;
+    background: transparent; 
+    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
+    margin: 0 auto;
+    display: block;
+    /* Button is a clickable element, therefore it should have a pointer cursor */
+    cursor: pointer;
+  }
+   .card .like i{
+    line-height: 30px;
+    text-align: center;
+    font-size: 23px;
+    color: #0077ff
+    
+}
+
+.card .like {
+    border: none;
+    padding: 12px 24px;
+    /* border-radius: 100%; */
+    background: transparent;
+    font-weight: 600;
+    color: transparent;
+    /* background-color: white; */
+    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
+    margin: 0 auto;
+    display: block;
+    /* Button is a clickable element, therefore it should have a pointer cursor */
+    cursor: pointer;
+  }
+
+.like-up {
+    color: red;
+}
+  
+  .card__details {
+    /* Add space around the details */
+    padding: 16px 8px 8px 8px; 
+    max-width: 268px;
+    max-height: 114px;
+  }
+
+.play-icon {
+    line-height: 30px;
+    text-align: center;
+    font-size: 23px;
+    color: #0077ff 
+} 
+
+@media only screen and (max-width: 700px) {
+  #track-main  {
+    justify-content: center;
+    align-items: center;
+
+    /* justify-content: space-around; */
+  }
+
+}

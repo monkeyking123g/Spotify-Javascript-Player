@@ -1,0 +1,32 @@
+
+<div class="container-form ">
+  <h3>Playlist Form</h3>
+  <form action="process.php" method="POST">
+    <label for="fname">Playlist Name</label>
+    <input class="input-text" type="text" id="playlistName" name="Playlist" placeholder="Your Playlist name..">
+
+    <!-- <label for="lname">Artist Name</label>
+    <input id="input-form" type="text" id="lname" name="lastname" placeholder="Your artist name.."> -->
+
+    <label for="country">Genres</label>
+    <select id="country" name="country">
+      <option value="Rap">Rap</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+    </select>
+
+    <label for="cover">Cover</label>
+    
+   <div class="image-upload">
+      <label for="file-input">
+        <img id="previewImg" src="/img/dl.png" style="width: 50px; height: 50px;" />
+      </label>
+
+      <input id="file-input" type="file" onchange="previewFile(this);" style="display: none;" />
+      <!-- <input id="file-input-track" type="file"/> -->
+    </div>
+
+    <input type="submit" value="save">
+  </form>
+  <script src="../js/playlist.js"></script>
+</div>

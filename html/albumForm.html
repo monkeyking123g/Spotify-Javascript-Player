@@ -1,0 +1,64 @@
+  <div class="container-form ">
+    <h3>Album Form</h3>
+    <form action="process.php" method="POST">
+      <label for="fname">Album Name</label>
+      <input  type="text" id="albumName" name="firstname" placeholder="Your album name.." autofocus data-autosave-url="http://127.0.0.1:5500/">
+
+      <label for="lname">Artist Name</label>
+      <input  type="text" id="albumArtist" name="lastname" placeholder="Your artist name..">
+
+      <label for="country">Genres</label>
+      <select id="country" name="country">
+        <option value="Rap">Rap</option>
+        <option value="Rock">Rock</option>
+        <option value="Pop">Hip-hop</option>
+      </select>
+
+      <label for="cover">Cover</label>
+      
+    <div class="image-upload">
+        <label for="file-input">
+          <img id="previewImg" src="/img/dl.png" style="width: 50px; height: 50px;" />
+        </label>
+
+        <input id="file-input" type="file" onchange="previewFile(this);" style="display: none;" />
+        <!-- <input id="file-input-track" type="file"/> -->
+      </div>
+
+      <input type="submit" value="conferm">
+    
+      <div class="autosave-message"></div>
+    </form>
+
+  <script>
+     $("form").submit(function (event) {
+        message = document.querySelector('.autosave-message')
+        const SAVING_MESSAGE = 'Saving...';
+        const SAVED_MESSAGE = 'All changes saved.';
+        var formData = {
+          albumName: $("#albumName").val(),
+          artistName: $("#albumArtist").val(),
+          genres: $("#country").val(),
+          image: $('#file-input').val(),
+        };
+        message.classList.add('autosave-message-saving');
+        message.textContent = SAVING_MESSAGE;
+        
+        console.log(formData)
+        // document.querySelectorAll('.autosave-message').forEach(el=> el.textContent = SAVED_MESSAGE)
+        
+        // $.ajax({
+        //   type: "POST",
+        //   url: "process.php",
+        //   data: formData,
+        //   dataType: "json",
+        //   encode: true,
+        // }).done(function (data) {
+        //   console.log(data);
+        // });
+    
+        event.preventDefault();
+      });
+
+  </script>
+  </div>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="scss/player.css">
+    <link rel="stylesheet" href="css/album.css">
+    <link rel="stylesheet" href="css/playlist.css">
+    <link rel="stylesheet" href="css/track.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="search-container">
+            <form action="" class="search-bar">
+                <input type="text" placeholder="Search.." name="search" id="search">
+                <button id="search_tracks" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        
+        <!-- </nav> -->
+        <div class="avatar-munu">
+            <img src="./img/cyberpank.jpg" alt="Avatar" class="avatar">
+            
+            <div class="dropdown-content">
+                <a href="./html/login.html">Login</a>
+                <a href="./html/sign_in.html">Sing In</a>
+            </div>
+              
+            
+        </div>
+        
+    </header>
+    <nav class="navbar-vrt" id="navbar-width">
+        <ul class="navbar-vrt-nav">
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+           
+            <li class="nav-item" id="album">
+                <a href="#" class="nav-link">
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    height="48" width="48">
+                    <path
+                    fill="currentColor" 
+                    d="M24.3 31.35q2.05 0 3.5-1.425 1.45-1.425 1.45-3.475v-12.6h5.8v-3h-7.8V22.7q-.55-.45-1.325-.7-.775-.25-1.625-.25-1.95 0-3.3 1.375-1.35 1.375-1.35 3.325 0 2 1.35 3.45 1.35 1.45 3.3 1.45ZM13 38q-1.2 0-2.1-.9-.9-.9-.9-2.1V7q0-1.2.9-2.1.9-.9 2.1-.9h28q1.2 0 2.1.9.9.9.9 2.1v28q0 1.2-.9 2.1-.9.9-2.1.9Zm0-3h28V7H13v28Zm-6 9q-1.2 0-2.1-.9Q4 42.2 4 41V10h3v31h31v3Zm6-37v28V7Z"/>
+                    </svg>
+                    <span class="link-text">Albums</span> 
+                </a>
+            </li> 
+            <li class="nav-item" id="track">
+                <a href="#" class="nav-link">
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    height="48" 
+                    width="48">
+                    <path fill="currentColor" d="M19.65 42q-3.15 0-5.325-2.175Q12.15 37.65 12.15 34.5q0-3.15 2.175-5.325Q16.5 27 19.65 27q1.4 0 2.525.4t1.975 1.1V6h11.7v6.75h-8.7V34.5q0 3.15-2.175 5.325Q22.8 42 19.65 42Z"/>
+                    </svg>
+                    <span class="link-text">Tracks</span>
+                </a>
+            </li>
+            <li class="nav-item" id="playlist">
+                <a href="#" class="nav-link">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                    <path fill="currentColor" d="M5 31.5v-3h15.3v3Zm0-8.25v-3h23.65v3ZM5 15v-3h23.65v3Zm27.1 27V25.9L43 33.95Z"/></svg> 
+             
+                    <span class="link-text">Playlists</span>
+                
+                </a>
+            </li>
+            <li class="nav-item" id="genre">
+                <a href="#" class="nav-link">
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    height="48"
+                     width="48">
+                     <path
+                     fill="currentColor" 
+                     d="M5 38q-1.2 0-2.1-.9Q2 36.2 2 35V13q0-1.2.9-2.1.9-.9 2.1-.9h22q1.2 0 2.1.9.9.9.9 2.1v22q0 1.2-.9 2.1-.9.9-2.1.9Zm0-3h22V13H5v22Zm2.8-4.85h16.25l-5-6.65L14.8 29l-3-4.1ZM35 38V10h3v28Zm8 0V10h3v28ZM5 35V13v22Z"/>
+                    </svg>
+                    <span class="link-text">Genres</span>
+                </a>
+            </li>
+            <li class="item-option">
+                <div class="content-option">
+                      
+                    <span class="material-symbols-outlined" id="albumForm"> 
+                        library_music
+                     </span>
+                     <span class="material-symbols-outlined" id="trackForm">
+                        music_note
+                     </span>
+                     <span class="material-symbols-outlined" id="playlistForm">
+                         playlist_play
+                     </span>
+                     <span class="material-symbols-outlined" id="genresForm">
+                        art_track
+                    </span>
+                     
+                 </div>
+            </li>
+            <li class="nav-item">
+                <div class="option-content-mobile">
+                    <span class="material-symbols-outlined" id="albumFormMobile">
+                        library_music
+                     </span>
+                     <span class="material-symbols-outlined" id="trackFormMobile">
+                        music_note
+                     </span>
+                     <span class="material-symbols-outlined" id="playlistFormMobile">
+                         playlist_play
+                     </span>
+                     <span class="material-symbols-outlined" id="genresFormMobile">
+                        art_track
+                    </span>
+                </div>
+                <a href="#" class="nav-link nav-link-last">
+                    <svg class="option-btn" id="option" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                    <path fill="currentColor"
+                    d="M6 31.5v-3h15v3Zm0-8.25v-3h23.5v3ZM6 15v-3h23.5v3Zm26.5 25v-8.5H24v-3h8.5V20h3v8.5H44v3h-8.5V40Z"/>
+                    </svg>
+                   
+                     <span class="link-text">add yours</span> 
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <div id="contents" style="width: 100%; height: 100%"></div> 
+    </main>
+
+
+    <footer>
+        <div class="cover-footer">
+            <img src="./img/cyberpank.jpg" alt="" class="cover">
+        </div>
+        <div class="test">
+            <audio controls id="audio">
+                <source src="" type="audio/mpeg" id="source">
+            <!-- Your browser does not support the audio element. -->
+            </audio>
+            <div class="audio-player">
+                <canvas height="50" width="480"></canvas>
+                <div class="controls">
+                    <button class="play-pause"><i class="fa fa-play"></i>
+                        <!-- play_arrow -->
+                        
+                    </button>
+                    <input type="range" class="seekbar"></input>
+                    <i class="fa fa-volume-down white"></i>
+                    <input type="range" class="volume"></input>
+                    <i class="fa fa-download white"></i>
+                </div>
+            </div>
+            <div class="name-album-text">
+                <ul>
+                    <li id="scroll-text">
+                        Track Name <br>
+                        Track Album sdfsd
+                    </li>
+                </ul>
+                  
+            </div>
+          
+        </div> 
+        
+    </footer>
+    <script src="./js/track.js"></script>
+    <script src="./js/player.js"></script>
+    <script src="./js/album.js"></script>
+    <script src="./js/genres.js"></script>
+    <script src="./index.js"></script> 
+</body>
+</html>

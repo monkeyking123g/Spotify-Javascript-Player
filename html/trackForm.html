@@ -1,0 +1,50 @@
+<div class="container-form ">
+  <h3>Track Form</h3>
+  <form action="process.php" method="POST">
+    <label for="fname">Track Name</label>
+    <input class="input-text" type="text" id="trackName" name="firstname" placeholder="Your track name..">
+
+    <label for="lname">Artist Name</label>
+    <input class="input-text" type="text" id="trackArtist" name="lastname" placeholder="Your artist name..">
+
+    <label for="country">Genres</label>
+    <select id="country" name="country">
+      <option value="Rap">Rap</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+    </select>
+
+    <label for="cover">Cover and Track</label>
+   
+   <div class="image-upload">
+      <label for="file-input">
+        <img id="previewImg" src="/img/dl.png" style="width: 50px; height: 50px;" />
+      </label>
+
+      <input id="file-input" type="file" onchange="previewFile(this);" style="display: none;" />
+      <input id="file-track" type="file"/>
+    </div>
+
+    <input type="submit" value="submit">
+  </form>
+ <script>
+  $("form").submit(function (event) {
+        // message = document.querySelector('.autosave-message')
+        // const SAVING_MESSAGE = 'Saving...';
+        // const SAVED_MESSAGE = 'All changes saved.';
+        var formData = {
+          trackName: $("#trackName").val(),
+          artistName: $("#trackArtist").val(),
+          genres: $("#country").val(),
+          image: $('#file-input').val(),
+          track: $('#file-track').val(),
+        };
+        // message.classList.add('autosave-message-saving');
+        // message.textContent = SAVING_MESSAGE;
+        
+        console.log(formData)
+        
+        event.preventDefault();
+      });
+ </script>
+</div>

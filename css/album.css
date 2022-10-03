@@ -1,0 +1,209 @@
+/**************************** flip card container - album **********************************/
+.album-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.maincontainer {
+    position: relative;
+    width: 400px;
+    /* max-width: 300px; */
+    height: 550px;
+    margin: 1rem;
+    
+
+}
+
+.thecard{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+   
+
+}
+.thecard-rotate {
+    transform: rotateY(180deg);
+}
+
+.thefront {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* padding: 8px; */
+    backface-visibility: hidden;
+    /* background: var(--text-primary); */
+    background: rgba(0, 0, 0, 0.5);
+    color: #333;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 18px;
+    color: var(--text-primary);
+}
+.thefront ul {
+    padding: 0;
+    margin: 0;
+    height: 47%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.thefront .name {padding: 10px;}
+
+.thefront > img {
+    width: 100%;
+    border-radius: 12px;
+    height: 277px;
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.thefront button {
+    border: 0px;
+    border-radius: 10px;
+    background: #0077ff;
+    font-size: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    color: #e0efff;  
+}
+
+
+
+.theback .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11%;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    /* background: var(--text-primary); */
+   
+}
+.theback button {
+    display: block;
+    border: 0;
+    border-radius: 10px;
+    background: #0077ff;
+    font-size: 17px;
+    padding: 10px;
+    cursor: pointer;
+    /* color: #e0efff; */
+    color: var(--text-primary);
+  
+  
+    
+}
+
+.theback {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* background: #fafafa; */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* color: #333; */
+    transform: rotateY(180deg);
+    /* text-align: center; */
+    border-radius: 20px; 
+    font-size: 1rem;
+
+}
+
+
+.card_flip {
+    position: absolute;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    width: 100%;
+    height: 100%;
+    
+    /* border-radius: 2px; */
+  
+    /* border: 3px solid rgba(0, 0, 0, 0.5); */
+    
+}
+.card_flip ul {
+    list-style: none;
+    /* color: #000000; */
+    height: 89%;
+    overflow-y: scroll;
+    
+}
+
+.card_flip > ul > li {
+    display: flex; 
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+ 
+    
+   
+}
+.tag-album {
+    /* width: 1rem;
+    max-height: 5px; */
+    padding: 4px 8px;
+    border: 1px solid #0077ff; 
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0077ff;
+}
+#search_album:hover {
+   
+    outline: 0px; 
+}
+#btn-album-search{
+    background-color: #0077ff;
+}
+
+.card_flip > ul > li:hover {
+    /* filter: grayscale(0%) opacity(1); */
+    /* background: var(--bg-primary);
+    color: var(--text-primary); */
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.card_flip > ul > li > span {
+    margin-left: 2rem;
+    width: 210px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+.card_flip ul::-webkit-scrollbar{
+    width:0.35rem;
+    height: 2em;
+    /* height: 50px; */
+    margin-right: 10px;
+}
+
+.card_flip ul::-webkit-scrollbar-button{
+    height: 12px;
+}
+
+.card_flip ul::-webkit-scrollbar-thumb{
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    background:  #0077ff;
+    border-radius: 10px;
+}
+.card_flip ul::-webkit-scrollbar-track{
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    /* height: 100px; */
+}
+
+/* @media only screen and (max-width: 700px) {
+    .album-main-container {justify-content: center;}
+
+}
+ */
