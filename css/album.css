@@ -10,11 +10,8 @@
 .maincontainer {
     position: relative;
     width: 400px;
-    /* max-width: 300px; */
     height: 550px;
     margin: 1rem;
-    
-
 }
 
 .thecard{
@@ -23,20 +20,15 @@
     height: 100%;
     transform-style: preserve-3d;
     transition: all 0.5s ease;
-   
-
 }
 .thecard-rotate {
     transform: rotateY(180deg);
 }
-
 .thefront {
     position: absolute;
     width: 100%;
     height: 100%;
-    /* padding: 8px; */
     backface-visibility: hidden;
-    /* background: var(--text-primary); */
     background: rgba(0, 0, 0, 0.5);
     color: #333;
     text-align: center;
@@ -95,11 +87,7 @@
     font-size: 17px;
     padding: 10px;
     cursor: pointer;
-    /* color: #e0efff; */
-    color: var(--text-primary);
-  
-  
-    
+    color: var(--text-primary); 
 }
 
 .theback {
@@ -116,25 +104,15 @@
     font-size: 1rem;
 
 }
-
-
 .card_flip {
     position: absolute;
-    /* background-color: rgba(0, 0, 0, 0.8); */
     width: 100%;
     height: 100%;
-    
-    /* border-radius: 2px; */
-  
-    /* border: 3px solid rgba(0, 0, 0, 0.5); */
-    
 }
 .card_flip ul {
     list-style: none;
-    /* color: #000000; */
     height: 89%;
-    overflow-y: scroll;
-    
+    overflow-y: scroll;   
 }
 
 .card_flip > ul > li {
@@ -158,20 +136,27 @@
     font-weight: 600;
     color: #0077ff;
 }
-#search_album:hover {
-   
-    outline: 0px; 
+#search_album {
+    font-family: inherit;
+    font-size: 1rem;
 }
+#search_album:hover {outline: 0px;}
 #btn-album-search{
     background-color: #0077ff;
+    box-sizing: border-box;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-left: 5px;
+}
+.form-album {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 }
 
-.card_flip > ul > li:hover {
-    /* filter: grayscale(0%) opacity(1); */
-    /* background: var(--bg-primary);
-    color: var(--text-primary); */
-    background: rgba(0, 0, 0, 0.2);
-}
+.card_flip > ul > li:hover {background: rgba(0, 0, 0, 0.2);}
 
 .card_flip > ul > li > span {
     margin-left: 2rem;

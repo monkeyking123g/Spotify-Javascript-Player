@@ -1,100 +1,127 @@
-
 $(document).ready(function(){
-    $("form").submit(function (event) {
-        // message = document.querySelector('.autosave-message')
-        // const SAVING_MESSAGE = 'Saving...';
-        // const SAVED_MESSAGE = 'All changes saved.';
-        var formData = {
-          playlistName: $("#playlistName").val(),
-          genres: $("#country").val(),
-          image: $('#file-input').val(),
-        };
-        // message.classList.add('autosave-message-saving');
-        // message.textContent = SAVING_MESSAGE;
-        
-        console.log(formData)
-
-        event.preventDefault();
+    const selectGenres = document.querySelector('#slct');
+    // const playlistMain = document.getElementById('playlist-main')
+    // playlistMain.style.justifyContent = 'center'
+    const loadGenres = async () => {
+        //get the token
+        const token = await getToken();   
+        //get the genres
+        const genres = await getGenres(token);
+        genres.forEach(element => {
+            const html = `<option value="${element.id}">${element.name}</option>`;
+            selectGenres.insertAdjacentHTML('beforeend', html);
+        });
+       
+    }
+    loadGenres()
+    selectGenres.addEventListener('change', async () => {
+        // Check select genres and found playlist from genres
+        token = await getToken();
+        const genreId = selectGenres.options[selectGenres.selectedIndex].value; 
+        const playlist = await getPlaylistByGenre(token, genreId);
+        // playlistMain.style.justifyContent = 'flex-start'
+       
+        $('#contents').empty()
+        $('#contents').append('<div id="playlist-main"></div>')
+        playlist.forEach(element => {
+            $('#playlist-main').append(` 
+             <div class="main-item" id="${element.id}">
+                 <img src="${element.images[0].url}" alt="${element.name}">
+                 <span>${element.name}</span>
+                 <a id="tracksLink" href="${element.tracks.href}"></a>
+             </div>
+             `);
+             document.getElementById(element.id).onclick = onclickTreks 
+        })
+       
     });
+     const onClickPlay = function() {
+        // Play track and translate name track a scroll text
+        const trackName = $(this).parents('li').find("span")[0].innerHTML
+        const playlistName = $(this).parents('li').find("span")[2].innerHTML
+
+        const linkTracksSpotify = this.getElementsByTagName('a')
+        //const idTrack = this.getElementsByTagName('audio')[0].id
+        const track = linkTracksSpotify[0].href
+
+        textScroll = document.getElementById('scroll-text')
+        textScroll.innerHTML = `${trackName}<br>${playlistName}`
     
-    //let clickPlay = false
-    //const cars = ["1", "2", "3", "4", "5", "6", "7"];
-    // var audio = new Audio('../mixkit-born-620.mp3');
-    // const onClick = function() {
-    //   console.log(this.id, this.className );
-    //   // this.className = 'fa fa-pause play-icon'
-    //   if(!clickPlay){
-    //             this.className = 'fa fa-pause play-icon'
-    //              clickPlay = true
-    //              audio.play();
-    //   }else{
-    //         this.className = 'fa fa-play play-icon'
-    //         clickPlay = false
-    //         audio.pause();
-    //   }
-    // }
-    // for(var car in  cars){
-    //   console.log(cars[car])
-    //   $('.playlist').append(`
+    
+        if (track == document.getElementById('source').src){
+            console.log('[OK]')
+        }else{
+            const sourceSrc  = document.getElementById('source').src = track
+            $("#audio").trigger('load');
+            const lis = $(".playlist-item").find('ul').children()
+            console.log(lis)
+            lis.each(element => {
+                console.log(lis[element])
+                lis[element].getElementsByTagName('i')[0].classList.value = 'fa fa-play play-icon'
+            })
+        }
       
-    //         <div class="container-playlist">
-                
-    //         <span class="playlist-name">Playlist name</span>
-    //         <div class="playlist-content">
-    //             <!-- <div class="playlist-cover">
-    //                 <img src="./img/cyberpank.jpg" alt=""> 
-    //             </div> -->
-    //             <div class="playlist-item">
-    //                 <ul>
+        if(this.className == 'fa fa-play play-icon'){
+                    this.className = 'fa fa-pause play-icon'
+                    $("#audio").trigger('play');
+        }else{
+                this.className = 'fa fa-play play-icon'
+                $("#audio").trigger('pause');
+                $("#audio").prop("currentTime", audio.currentTime);
+        }
+    }
+    const onclickTreks = async function () {
+        const token = await getToken();
+        linkTracksSpotify = this.getElementsByTagName('a')
+        const tracks = await getTracks(token, linkTracksSpotify[0].href)
+        $("#contents").empty()
+        $("#contents").append(`
+            <div class="playlist">
+                <div class="container-playlist">
                         
-    //                 </ul>
-    //             </div>
-    //         </div>
-    //     </div>
+                    <span class="playlist-name">${$(this).find('span').text()}</span>
+                    <div class="playlist-content">
+                        
+                        <div class="playlist-item">
+                            <ul>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+            `)
+        let  i = 0
+        const titlePlaylist = $(this).find('span').text()
         
-    //   `)
-    //   for(var track in cars){
-    //     console.log(track)
-    //   $('.playlist-item ul').append(`
-    //     <li>
-    //       <div class="li-cov-icon"><img class="playlist-cover" src="../img/cyberpank.jpg" alt="">
-    //         <i id="1" class="fa fa-play play-icon"></i>
-    //       </div>
-    //       <span>dua lipa 2d asadad fd ad sdy</span>
-    //     </li>
-      
-    // `)
-    // }
-
-      //document.getElementById(cars[car]).onclick = onClick;
-    // $(`#${cars[car]}`).click(function(){
-    //     console.log("sdsfd")
-      
-    //      if(!clickPlay){
-    //          buttonPlay.className = 'fa fa-pause play-icon'
-    //          clickPlay = true
-    //     }else{
-    //         buttonPlay.className = "fa fa-play play-icon"
-    //         clickPlay = false
-    //     }
-    //   })
-    
-    //}
-    // var tabs = $("#play");
-
-    // tabs.on("click", function () {
-    //   $("this").className = "fa fa-play play-icon"
-    // })
-    // $("#play").click(function(){
-    //   console.log("sdsfd")
-    
-    //    if(!clickPlay){
-    //        buttonPlay.className = 'fa fa-pause play-icon'
-    //        clickPlay = true
-    //   }else{
-    //       buttonPlay.className = "fa fa-play play-icon"
-    //       clickPlay = false
-    //   }
-    // })
-    
-});
+        tracks.forEach(async(el) => {
+            //console.log(el.track.href + el.track.preview_url + el.track.name)
+            const track = await getTrack(token, el.track.href);
+            track.album.images[2].url
+            // console.log(track) 
+            if(el.track.preview_url == null){
+                 console.log('404 not found element track preview url !')
+            }else {
+                const minuteTrack = convertMsToMinutesSeconds((track.duration_ms))
+                console.log(minuteTrack)
+                $('.playlist-item ul').append(`
+                <li>
+                <div class="li-cov-icon"><img class="playlist-cover" src="${track.album.images[2].url}" alt="">
+                    <i id="${i}" class="fa fa-play play-icon">
+                        <a href="${el.track.preview_url}"></a>
+                        <audio controls="controls" id="${track.id}">
+                            <source src="${el.track.preview_url}" type="audio/mpeg"/>
+                        </audio>  
+                    </i>
+                </div>
+                <span>${el.track.name}</span>
+                <span>${minuteTrack}</span>
+                <span style="display: none;">${titlePlaylist}</span>
+                </li>
+                `)
+                document.getElementById(i).onclick = onClickPlay
+                i += 1
+            } 
+        }) 
+    }   
+})

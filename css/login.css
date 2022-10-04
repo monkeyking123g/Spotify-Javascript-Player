@@ -21,11 +21,6 @@
     width: 50%;
     background: url('../img/appmusic.jpg') center center/cover no-repeat;
 }
-/* .container1 img {
-    width: 100%;
-    height: 100%; */
-    
-
 
 .container2 {
     display: flex;
@@ -167,38 +162,14 @@ h1 {
   .block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
     top: 100%;
   }
-/*   
-   .credits {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    padding: 15px 15px;
-    width: 100%;
-    z-index: 111;
-  }
-  .credits a {
-    opacity: 0.6;
-    color: #fff;
-    font-size: 11px;
-    text-decoration: none;
-  }
-  .credits a:hover {
-    opacity: 1;
-  }  */
 
 @media (max-width:1060px) {
   .container2 {
-    /* display: flex; */
     width: 100%;
     height: 100%;
-    /* justify-content: center;
-    align-items: center; */
   }
   .container1 {
     width: 0;
     height: 0;
-
   }
-
-
 }

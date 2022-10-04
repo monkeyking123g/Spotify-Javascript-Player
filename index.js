@@ -1,4 +1,3 @@
-
 const menuBtn = document.querySelector('.menu-btn');
 const menuVerticaliOpen = document.getElementById("navbar-width");
 const displayText = document.querySelectorAll('.link-text');
@@ -14,7 +13,7 @@ let keyMenu = sessionStorage.getItem("menuKey");
 const CLIENT_ID = '51236b5451a244338d05226506161860';
 const CLIENT_SECRET = '52fd577c48f74e1fb65a08cd4a7132c5';
 
-// defult page from app
+// defult page from App
 if (keyMenu == null){
     sessionStorage.setItem('menuKey', 'genres');
     keyMenu = sessionStorage.getItem("menuKey");
@@ -30,35 +29,21 @@ $(function () {
         })
 });
 
-// function strToElem(optionMenu){
-//     // var temp = '<p> An absolute URL : <a href="'+ link + '">'+text+'</a></p>';
-//     // var option = '<div data-include="'+optionMenu+'">Fuck</div>'
-//     var option = '<div id="DivContent">'
-//     var div = document.createElement("div");
-//     div.innerHTML = option;
-//     console.log(div.childNodes[0])
-//     return div.childNodes[0];
-//   }
+
 
 let menuOpen = false;
 menuBtn.addEventListener('click', () => {
     if(!menuOpen) {
         menuBtn.classList.add('open');
-        // optionMenu.classList.add('option-open');
-        //clickOptionMenu = false
         menuVerticaliOpen.style.width = '16rem';
-        // displayText.classList.add('link-text-visible')
         for (var i = 0; i < displayText.length; ++i) {
             displayText[i].classList.add('link-text-visible');
          }
-        //displayText.forEach(element => element.style.display = 'inline');
-        // displayText.forEach(element => element.style.opacity = 1,element.style.visibility = 'visible');
         menuOpen = true
 } else {
         menuBtn.classList.remove('open');
         optionMenu.classList.remove('option-open')
         menuVerticaliOpen.style.width = '5rem';
-        // displayText.forEach(element => element.style.display = 'none');
         for (var i = 0; i < displayText.length; ++i) {
             displayText[i].classList.remove('link-text-visible');
          }
@@ -77,7 +62,6 @@ $('#option').click(function(){
             optionMenu.classList.add('option-open');
             optionButton.classList.remove('rotate-option-clouse')
             optionButton.classList.add('rotate-option')
-            // contOption.classList.add('aaa')
             clickOptionMenu = true
         }
         if(width < 700){
@@ -85,13 +69,12 @@ $('#option').click(function(){
             optionMobile.classList.add('option-open-mobile');
         } 
     }else {
-        // contOption.classList.remove('aaa')
         optionButton.classList.remove('rotate-option')
         optionButton.classList.add('rotate-option-clouse')
         clickOptionMenu = false
         if(menuOpen){
             optionMenu.classList.remove('option-open');  
-            // contOption.classList.remove('aaa')
+           
         }
         if(width < 700){
             optionMobile.classList.remove('option-open-mobile');
@@ -105,13 +88,13 @@ $('#option').click(function(){
         $("#contents").append(html);
      }
 });
-let clickMenu = {
-    clickAlbum : false,
-    clickTrack : false,
-    clickPlaylist : false,
-    clickGenre : false,
- }
-// click form mobile version
+// let clickMenu = {
+//     clickAlbum : false,
+//     clickTrack : false,
+//     clickPlaylist : false,
+//     clickGenre : false,
+//  }
+// click form Mobile version
 $('#genresFormMobile').click(function(){
     sessionStorage.setItem('menuKey', 'genresForm')
     $('#contents').empty()
@@ -156,7 +139,7 @@ $('#trackFormMobile').click(function(){
          });
 });
 
-// click form window version
+// click form PC version
 $('#genresForm').click(function(){
     sessionStorage.setItem('menuKey', 'genresForm')
     $('#contents').empty()
@@ -190,7 +173,6 @@ $('#albumForm').click(function(){
 });
 
 $('#trackForm').click(function(){
-    
         $("#contents").empty()
         sessionStorage.setItem('menuKey', 'trackForm');
         $.ajax({
@@ -202,7 +184,6 @@ $('#trackForm').click(function(){
 });
 
 $('#album').click(function(){
-    //if(!clickMenu.clickAlbum){
         $("#contents").empty()
         sessionStorage.setItem('menuKey', 'album');
         $.ajax({
@@ -211,10 +192,7 @@ $('#album').click(function(){
                $("#contents").append(html);
             }
          });
-        //  clickMenu.clickAlbum = true
-        //  clickMenu.clickTrack = false
-        //  clickMenu.clickPlaylist = false
-    //}else console.log("pass")
+      
     
 });
 $('#track').click(function(){
@@ -228,14 +206,10 @@ $('#track').click(function(){
             $("#contents").append(html);
         }
     });
-    // clickMenu.clickTrack = true
-    // clickMenu.clickAlbum = false
-    // clickMenu.clickPlaylist = false
-    //}else console.log("pass")
+    
 });
 $('#playlist').click(function(){
     sessionStorage.setItem('menuKey', 'playlist');
-    //if(!clickMenu.clickPlaylist){
         $("#contents").empty()
         lastMenuKey = 'playlist'
         $.ajax({
@@ -244,16 +218,11 @@ $('#playlist').click(function(){
             $("#contents").append(html);
             }
         });
-        // clickMenu.clickPlaylist = true
-        // clickMenu.clickTrack = false
-        // clickMenu.clickAlbum = false
-   //}else{console.log('pass')}
+        
 });
 $('#genre').click(function(){
     sessionStorage.setItem('menuKey', 'genres');
-    //if(!clickMenu.clickGenre){
     $("#contents").empty()
-        
     $.ajax({
       url: './html/genres.html',
       success: function(html) {
@@ -311,9 +280,10 @@ const onClickPlayTrack = function() {
  }
 
 searchTracks = async function (input) {
+    // search from tracks name
     const token = await getToken()
     const result = await getSearch(token, input, "track")
-   // console.log(result)
+
     $("#contents").empty()
     $("#contents").append("<div id='track-main'></div>")
     let i = 0
@@ -357,18 +327,6 @@ $('#search_tracks').click(function () {
     const input = document.querySelector('#search').value;
     console.log(input)
     const tracks = searchTracks(input)
-    // tracks.forEach(element => {
-    //     console.log(element + "Yes i'm find tracks")
-        
-    // });
-    //console.log(tracks + "Yes i'm find tracks")
-    
-    // if (input == ""){
-    //   console.log("[PASS]")
-    // }else{
-    //   loadAlbum(input)
-      //$('#searchUser').val('');
-    //}
 })
 // Spotify API 
 const getToken = async () => {
@@ -462,7 +420,7 @@ const getSearch = async (token, searchInput, type) => {
    
 };
 
-// trasform ms in minute Digists
+// trasform miliseconds in minutes Digists
 function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
   }

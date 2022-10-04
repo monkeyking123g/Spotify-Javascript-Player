@@ -6,30 +6,18 @@
   flex-wrap: wrap;
   margin-left: 1rem;
   margin-top: 1rem;
-  /* justify-content: space-around; */
 }
 #container-track {
     width: 300px;
-    /* height: 250px; */
     max-width: 300px;
-    
-    /* Center the container in middle on horizontal axis */
-     /* margin-top: 0.5rem;
-    margin-right: 0.5rem;  */
     padding: 1rem;
-    
-    
   }
 .container {
     width: 300px;
     max-width: 300px;
-    /* max-height: 331px; */
-    /* Center the container in middle on horizontal axis */
     margin: 1rem;
-    /* background: rgba(0, 0, 0, 0.5); */
   }
 .card {
-    /* Change background color */
     max-height: 331px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 12px;
@@ -53,10 +41,7 @@
     width: 268;
     white-space: nowrap;
     text-overflow: ellipsis;
-    /* width: 1rem;
-    max-height: 5px; */
     padding: 4px 8px;
-    /* border: 1px solid #0077ff; */
     border-radius: 50px;
     font-size: 12px;
     font-weight: 600;
@@ -75,14 +60,11 @@
   .card .play {
     border: none;
     padding: 12px 24px;
-    /* border-radius: 50px; */
     font-weight: 600;
     color: #0077ff;
     background: transparent; 
-    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
     margin: 0 auto;
     display: block;
-    /* Button is a clickable element, therefore it should have a pointer cursor */
     cursor: pointer;
   }
    .card .like i{
@@ -96,15 +78,11 @@
 .card .like {
     border: none;
     padding: 12px 24px;
-    /* border-radius: 100%; */
     background: transparent;
     font-weight: 600;
     color: transparent;
-    /* background-color: white; */
-    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
     margin: 0 auto;
     display: block;
-    /* Button is a clickable element, therefore it should have a pointer cursor */
     cursor: pointer;
   }
 

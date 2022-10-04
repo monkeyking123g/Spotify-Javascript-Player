@@ -18,6 +18,17 @@
 
     <input type="submit" value="save">
   </form>
-  <script src="../js/genres.js"></script>
+  <script>
+     $("form").submit(function (event) {
+        var formData = {
+          genresName: $("#genreName").val(),
+          image: $('#file-input').val(),
+        };
+        // message.classList.add('autosave-message-saving');
+        // message.textContent = SAVING_MESSAGE;
+        console.log(formData)
+        event.preventDefault();
+    })
+  </script>
  
 </div>

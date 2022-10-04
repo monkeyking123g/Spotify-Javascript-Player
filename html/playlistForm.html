@@ -28,5 +28,22 @@
 
     <input type="submit" value="save">
   </form>
-  <script src="../js/playlist.js"></script>
+  <script>
+    $("form").submit(function (event) {
+        // message = document.querySelector('.autosave-message')
+        // const SAVING_MESSAGE = 'Saving...';
+        // const SAVED_MESSAGE = 'All changes saved.';
+        var formData = {
+          playlistName: $("#playlistName").val(),
+          genres: $("#country").val(),
+          image: $('#file-input').val(),
+        };
+        // message.classList.add('autosave-message-saving');
+        // message.textContent = SAVING_MESSAGE;
+        
+        console.log(formData)
+
+        event.preventDefault();
+    });
+  </script>
 </div>

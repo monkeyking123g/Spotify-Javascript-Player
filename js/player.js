@@ -6,10 +6,9 @@ const playPauseButton = document.querySelector('.play-pause');
 const seekbar = document.querySelector('.seekbar');
 const volumeBar = document.querySelector('.volume');
 
-
 const pauseIcon = `<i class="fa fa-pause"></i>`;
 const playIcon = '<i class="fa fa-play"></i>';
-//const replayIcon = `<i class="fa fa-volume-down white"></i>`;
+
 const replayIcon = `<i class="fa fa-play"></i>`;
 
 
