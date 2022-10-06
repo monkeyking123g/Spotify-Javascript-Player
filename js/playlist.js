@@ -35,41 +35,6 @@ $(document).ready(function(){
         })
        
     });
-     const onClickPlay = function() {
-        // Play track and translate name track a scroll text
-        const trackName = $(this).parents('li').find("span")[0].innerHTML
-        const playlistName = $(this).parents('li').find("span")[2].innerHTML
-
-        const linkTracksSpotify = this.getElementsByTagName('a')
-        //const idTrack = this.getElementsByTagName('audio')[0].id
-        const track = linkTracksSpotify[0].href
-
-        textScroll = document.getElementById('scroll-text')
-        textScroll.innerHTML = `${trackName}<br>${playlistName}`
-    
-    
-        if (track == document.getElementById('source').src){
-            console.log('[OK]')
-        }else{
-            const sourceSrc  = document.getElementById('source').src = track
-            $("#audio").trigger('load');
-            const lis = $(".playlist-item").find('ul').children()
-            console.log(lis)
-            lis.each(element => {
-                console.log(lis[element])
-                lis[element].getElementsByTagName('i')[0].classList.value = 'fa fa-play play-icon'
-            })
-        }
-      
-        if(this.className == 'fa fa-play play-icon'){
-                    this.className = 'fa fa-pause play-icon'
-                    $("#audio").trigger('play');
-        }else{
-                this.className = 'fa fa-play play-icon'
-                $("#audio").trigger('pause');
-                $("#audio").prop("currentTime", audio.currentTime);
-        }
-    }
     const onclickTreks = async function () {
         const token = await getToken();
         linkTracksSpotify = this.getElementsByTagName('a')
@@ -97,7 +62,7 @@ $(document).ready(function(){
         tracks.forEach(async(el) => {
             //console.log(el.track.href + el.track.preview_url + el.track.name)
             const track = await getTrack(token, el.track.href);
-            track.album.images[2].url
+            // track.album.images[2].url
             // console.log(track) 
             if(el.track.preview_url == null){
                  console.log('404 not found element track preview url !')
@@ -115,11 +80,11 @@ $(document).ready(function(){
                     </i>
                 </div>
                 <span>${el.track.name}</span>
-                <span>${minuteTrack}</span>
+                <span class="minute-track">${minuteTrack}</span>
                 <span style="display: none;">${titlePlaylist}</span>
                 </li>
                 `)
-                document.getElementById(i).onclick = onClickPlay
+                document.getElementById(i).onclick = onClickPlayGenres
                 i += 1
             } 
         }) 

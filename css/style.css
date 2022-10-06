@@ -1,9 +1,13 @@
+@import "playlist.css";
+@import "album.css";
+@import "track.css";
+@import "form.css";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Old+Standard+TT&family=Press+Start+2P&display=swap');
 :root {
     --text-primary: #edf0f1;
     /* --bg-primary: #24252A;  */
     --bg-primary: 	rgba(36, 37, 42, 1); 
-    --bg-secondary: #6649b8;
+    /* --bg-secondary: #6649b8; */
     --transition-speed: 600ms;
     --blue-primary:  rgba(0, 136, 169, 1);
     --blu-secondary: #0077ff;
@@ -27,9 +31,10 @@ body {
 /*********************************** Main content style   ********************************/
 main {
     margin-left: 5rem;
+    margin-top: auto;
     color: #fff;
     /* width: 95%;  */
-    height: 79%; 
+    /* height: 79%;  */
     overflow-y: scroll;
     box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.1); 
 }
@@ -51,6 +56,8 @@ main #contents {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
 }
 
  .nav_links a, .nav_links button {
@@ -76,6 +83,7 @@ header {
          
 }
 footer {
+    margin-top: 1px;
     margin-left: 5rem;
     background-color: transparent;
     height: 110px;
@@ -273,19 +281,6 @@ footer {
 .nav-item {
     width: 100%;
 }
-/* .nav-item:last-child {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}  */
-/* .test-mobile {
-    /* margin-bottom: 3rem; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
-
 .nav-link {
     display: flex;
     align-items: center;
@@ -326,11 +321,6 @@ footer {
     opacity: 1;
     visibility: visible;
 }
-/* .nav-link img {
-    margin: 1rem;
-    min-width: 2rem;
-    margin: 0, 1.5rem;
-} */
 .nav-link svg {
     /* margin: 1rem;  */
     width: 3rem;
@@ -390,7 +380,7 @@ footer {
 
 
 /************************************* Genres  *******************************************/
-.genres{
+.genres-main{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -400,7 +390,7 @@ footer {
 }
 .genre {
     width: 300px;
-    height: 400px;
+    /* height: 400px; */
     border-radius: 10px;
     text-align: center;
     margin: 1rem;
@@ -428,7 +418,6 @@ footer {
         color: var(--blue-primary);
         background: black;
       }
-     
     .option-content-mobile {
         visibility: hidden;
         opacity: 0; 
@@ -452,7 +441,7 @@ footer {
     header {
         margin: 0;
         justify-content: center;
-        padding: 1rem;
+        padding: 0.3rem;
     } 
     footer {
         display: none;
@@ -469,7 +458,7 @@ footer {
     .navbar-vrt {
       bottom: 0;
       width: 100vw;
-      height: 5rem;
+      height: 4rem;
       border-top: 1px solid rgba(0, 0, 0, 0.9);
     }
   
@@ -479,16 +468,27 @@ footer {
   
     .navbar-vrt-nav  {
       flex-direction: row;
-    }
-  
+    } 
     .nav-link {justify-content: center; }
-   
-  
     main {
       margin: 0;
       padding: 0;
-      height: 80%;
-    } 
+      /* height: 79%; */
+    }
+    .minute-track {display: none;}
+    #playlist-main{justify-content: center;}
+    .playlist-item > ul > li > span { width: 250px;}
+    .playlist-item{width: 100%;}
+    .playlist-cover{margin-right: 2rem;} 
+    .playlist-item > ul > li > i {margin-left: 2rem;}
+    .playlist {height: 85vh;}
+    .container-form {width: 30rem;}
+
+    #track-main  {
+        justify-content: center;
+        align-items: center;
+    }
+    
   } 
   @media only screen and (min-width: 700px) {
     .navbar-vrt {

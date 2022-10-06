@@ -5,6 +5,8 @@ const optionMenu = document.querySelector('.content-option')
 const contOption = document.querySelector('.nav-link-last')
 const optionButton = document.querySelector('.option-btn')
 const optionMobile = document.querySelector('.option-content-mobile')
+const search = document.querySelector('#search_tracks')
+// const playPauseButton = document.querySelector('.play-pause');
 
 let clickOptionMenu = false
 let keyMenu = sessionStorage.getItem("menuKey");
@@ -248,6 +250,44 @@ function previewFile(input){
       x.style.height = '100px'
     }
 }
+const onClickPlayGenres = function() {
+    // Play track and translate name track a scroll text
+    const trackName = $(this).parents('li').find("span")[0].innerHTML
+    const playlistName = $(this).parents('li').find("span")[2].innerHTML
+
+    const linkTracksSpotify = this.getElementsByTagName('a')
+    //const idTrack = this.getElementsByTagName('audio')[0].id
+    const track = linkTracksSpotify[0].href
+
+    textScroll = document.getElementById('scroll-text')
+    textScroll.innerHTML = `${trackName}<br>${playlistName}`
+
+  
+    if (track == document.getElementById('source').src){
+        console.log('[OK]')
+    }else{
+        audioState.isPaused = true
+        const sourceSrc  = document.getElementById('source').src = track
+        $("#audio").trigger('load');
+        const lis = $(".playlist-item").find('ul').children()
+        console.log(lis)
+        lis.each(element => {
+            console.log(lis[element])
+            lis[element].getElementsByTagName('i')[0].classList.value = 'fa fa-play play-icon'
+        })
+    }
+  
+    if(this.className == 'fa fa-play play-icon'){
+                this.className = 'fa fa-pause play-icon'
+                //$("#audio").trigger('play');
+                togglePlayPause()
+    }else{
+            this.className = 'fa fa-play play-icon'
+            //$("#audio").trigger('pause');
+            //$("#audio").prop("currentTime", audio.currentTime);
+            togglePlayPause()
+    }
+}
 const onClickPlayTrack = function() {
     // translate a player track name
     const trackName = this.getAttribute('name')
@@ -258,6 +298,7 @@ const onClickPlayTrack = function() {
     if (this.getAttribute('src') == document.getElementById('source').src){
       console.log('[PASS]')
     }else {
+      audioState.isPaused = true
       const sourceSrc  = document.getElementById('source').src = this.getAttribute('src')
       $("#audio").trigger('load');
       const lis = $(".play").find('i')
@@ -269,12 +310,16 @@ const onClickPlayTrack = function() {
     }
      if(this.className == "fa fa-play play-icon"){
                this.className = 'fa fa-pause play-icon'
-               $("#audio").trigger('play');
+               //$("#audio").trigger('play');
+               //audio.play()
+               togglePlayPause()
  
      }else{
            this.className = 'fa fa-play play-icon'
-           $("#audio").trigger('pause');
-           $("#audio").prop("currentTime", audio.currentTime);
+           //$("#audio").trigger('pause');
+           //audio.pause()
+           togglePlayPause()
+           //$("#audio").prop("currentTime", audio.currentTime);
           
     }
  }
@@ -286,7 +331,7 @@ searchTracks = async function (input) {
 
     $("#contents").empty()
     $("#contents").append("<div id='track-main'></div>")
-    let i = 0
+  
     result.tracks.items.forEach(element => {
         if(element.preview_url == null){
             console.log('nou track url bro')
@@ -313,21 +358,22 @@ searchTracks = async function (input) {
          </div>
          `)
          document.getElementById(element.id).onclick =  onClickPlayTrack
-         i += 1
        }
     
         
     });
 }
 
-    //return result
 
-$('#search_tracks').click(function () {
-    console.log("Clicked")
+    //return result
+search.addEventListener('click', clickSearch);
+
+function clickSearch () {
+    // console.log("Clicked + [ssssss]")
     const input = document.querySelector('#search').value;
     console.log(input)
     const tracks = searchTracks(input)
-})
+}
 // Spotify API 
 const getToken = async () => {
  

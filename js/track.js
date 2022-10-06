@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+  const playPauseButton = document.querySelector('.play-pause');
 
     const onClikLike = function() {
       let  like = document.getElementById(this.id)
@@ -9,7 +10,7 @@ $(document).ready(function(){
           like.style.color = "#0077ff"
       }
   }
-   
+    
     const onclickTreks = async () => {
           const token = await getToken();
           const tracks = await getTracks(token, 'https://api.spotify.com/v1/playlists/37i9dQZF1DWWY64wDtewQt/tracks/');

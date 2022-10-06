@@ -1,40 +1,4 @@
-$(document).ready(function(){
-  // get data track name and playlist name 
-  const onClickPlay = function() { 
-    const trackName = $(this).parents('li').find("span")[0].innerHTML
-    const playlistName = $(this).parents('li').find("span")[2].innerHTML
-    const linkTracksSpotify = this.getElementsByTagName('a')
-    //const idTrack = this.getElementsByTagName('audio')[0].id
-    const track = linkTracksSpotify[0].href
-    
-    textScroll = document.getElementById('scroll-text')
-    textScroll.innerHTML = `${trackName}<br>${playlistName}`
-    
-    console.log(audioElement)
-    if (track == document.getElementById('source').src){
-        console.log('[OK...]')
-        
-    }else{
-        const sourceSrc  = document.getElementById('source').src = track
-        $("#audio").trigger('load');
-        const listPlayicon = $(".playlist-item").find('ul').children()
-        listPlayicon.each(element => {
-          listPlayicon[element].getElementsByTagName('i')[0].classList.value = 'fa fa-play play-icon'
-        })
-    }
-    
-    if(this.className == 'fa fa-play play-icon'){
-              this.className = 'fa fa-pause play-icon'
-              $("#audio").trigger('play');
-              
-    }else{
-          this.className = 'fa fa-play play-icon'
-          $("#audio").trigger('pause');
-          $("#audio").prop("currentTime", audio.currentTime);
-    }
-    
-  }
-  
+$(document).ready(function(){  
    const onclickTreks = async function () {
     const token = await getToken();
     linkTracksSpotify = this.getElementsByTagName('a')
@@ -75,11 +39,11 @@ $(document).ready(function(){
             </div>
             <span>${el.track.name}</span>
             <!--<span>${track.album.name}</span> -->
-            <span>${minuteTrack}</span>
+            <span class="minute-track">${minuteTrack}</span>
             <span style="display: none;">${titlePlaylist}</span>
             </li>
             `)
-            document.getElementById(i).onclick = onClickPlay
+            document.getElementById(i).onclick = onClickPlayGenres
             i += 1
         }
     })
@@ -116,7 +80,7 @@ $(document).ready(function(){
                 <span>${element.name}</span>
             </div>
        `)
-       document.getElementById(element.id).onclick = onClick
+       document.getElementById(`${element.id}`).onclick = onClick;
     });
   }
   loadGenres();

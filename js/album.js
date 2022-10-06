@@ -42,7 +42,8 @@ $(document).ready(function(){
         const token = await getToken();
         const searchAlbum = await getSearch(token, input, "artist%2Calbum")
         console.log(searchAlbum)
-        $(".album-main-container").empty()
+        $("#contents").empty()
+        $("#contents").append("<div class='album-main-container'></div>")
         searchAlbum.albums.items.forEach(async element => {
           const tracks = await getTracks(token, `${element.href}/tracks`)
           $(".album-main-container").append(`
