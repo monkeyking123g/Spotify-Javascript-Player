@@ -27,6 +27,3 @@ Music app prende api da spotify e crea albums, genres, traks, playlists, sistema
 - Scss
 - AJAX
 -
-![alt text](https://github.com/monkeyking123g/Fighter-Game/blob/main/img/fight%20game.png)
-
-![alt text](https://github.com/monkeyking123g/Fighter-Game/blob/main/img/fight%20game.png)
