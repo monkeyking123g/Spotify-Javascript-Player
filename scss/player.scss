@@ -1,32 +1,23 @@
 
-$blue-primary:  rgba(0, 136, 169, 1);
+$blue-primary:rgba(0, 136, 169, 1);
 $black-primary: #222;
 $backgarund: #B0B0B0;
 
 @mixin item_cursor($width, $color) {
   height: 20px;
-  // width: 10px;
   width: $width;
   background: $color;
   cursor: pointer;
   
 }
 
-.cover-footer {
-  width: 98px;
-  height: 96px;
-  margin-right: 1rem;
+.main-footer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.cover-footer{
-  .cover {
-    width: 100%;
-    height: 100%;
-    border-radius: 9px;
-    border: 2px solid rgba(146, 146, 148, 0.7);
-  }
+  background: #020202;
+  border-radius: 9px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   
 }
 .seekbar {
@@ -45,11 +36,11 @@ $backgarund: #B0B0B0;
 
 .seekbar::-webkit-slider-thumb {
   -webkit-appearance: none;
-  @include item_cursor(10px, $black-primary)
+  @include item_cursor(10px, $black-primary);
 }
 
 .seekbar::-moz-range-thumb {
-  @include item_cursor(10px, $black-primary)
+  @include item_cursor(10px, $black-primary);
 }
 
 .seekbar::-webkit-slider-runnable-track {
@@ -57,7 +48,7 @@ $backgarund: #B0B0B0;
 // height: 20px;
 // cursor: pointer;
 // background: $backgarund;
-@include item_cursor(100%, $backgarund)
+@include item_cursor(100%, $backgarund);
 }
 
 .seekbar:focus::-webkit-slider-runnable-track {
@@ -105,11 +96,11 @@ background: $backgarund;
 width: 100%;
 height: 10px;
 cursor: pointer;
-background: $blue-primary;
+background: #B0B0B0;
 }
 
 .volume:focus::-webkit-slider-runnable-track {
-background: $blue-primary;
+background: #B0B0B0;
 }
 
 .volume::-moz-range-track {
@@ -146,9 +137,55 @@ audio {
   background: #020202;
   padding: 10px;
   border-radius: 9px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .white {
-  color : #fff;
+  color: rgb(0, 136, 169);
+  cursor: pointer;
+}
+.name-album-text {
+  text-align: center;
+  color: white;
+}
+.name-album-text ul {
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+}
+#scroll-text {
+  padding: 5px;
+  text-shadow: 2px 2px 4px rgb(0, 136, 169);
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 13s linear infinite;
+  -webkit-animation: my-animation 13s linear infinite;
+  animation: my-animation 13s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
 }

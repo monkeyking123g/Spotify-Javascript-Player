@@ -1,7 +1,7 @@
 /**************************** flip card container - album **********************************/
 .album-main-search{
-    position: absolute;
-    margin-bottom: 40rem;
+    /* position: absolute; */
+    /* margin-bottom: 40rem; */
     display: flex;
     align-items: center;
     justify-content: center;

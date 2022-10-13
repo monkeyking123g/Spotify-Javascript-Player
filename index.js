@@ -250,11 +250,28 @@ function previewFile(input){
       x.style.height = '100px'
     }
 }
+function saveAs(url) {    
+    var filename = url.substring(url.lastIndexOf("/") + 1).split("?")[0];
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = function() {
+      var a = document.createElement('a');
+      a.href = window.URL.createObjectURL(xhr.response);
+      a.download = filename; 
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      delete a;
+    };
+    xhr.open('GET', url);
+    xhr.send();
+}
+
 const onClickPlayGenres = function() {
     // Play track and translate name track a scroll text
     const trackName = $(this).parents('li').find("span")[0].innerHTML
     const playlistName = $(this).parents('li').find("span")[2].innerHTML
-
+    const dowelandSrc = document.getElementById('dowland-track')
     const linkTracksSpotify = this.getElementsByTagName('a')
     //const idTrack = this.getElementsByTagName('audio')[0].id
     const track = linkTracksSpotify[0].href
@@ -267,7 +284,10 @@ const onClickPlayGenres = function() {
         console.log('[OK]')
     }else{
         audioState.isPaused = true
-        const sourceSrc  = document.getElementById('source').src = track
+        document.getElementById('source').src = track
+       
+        document.getElementById('source1').src = track + ".mp3"
+        dowelandSrc.href = track 
         $("#audio").trigger('load');
         const lis = $(".playlist-item").find('ul').children()
         console.log(lis)
@@ -293,13 +313,16 @@ const onClickPlayTrack = function() {
     const trackName = this.getAttribute('name')
     textScroll = document.getElementById('scroll-text')
     textScroll.innerHTML = `${trackName}`
+    const dowelandSrc = document.getElementById('dowland-track')
     
     
     if (this.getAttribute('src') == document.getElementById('source').src){
       console.log('[PASS]')
     }else {
       audioState.isPaused = true
-      const sourceSrc  = document.getElementById('source').src = this.getAttribute('src')
+      document.getElementById('source').src = this.getAttribute('src')
+      document.getElementById('source1').src = this.getAttribute('src') + ".mp3"
+      dowelandSrc.href = this.getAttribute('src') 
       $("#audio").trigger('load');
       const lis = $(".play").find('i')
        // rename all pause button in play.
@@ -309,10 +332,10 @@ const onClickPlayTrack = function() {
 
     }
      if(this.className == "fa fa-play play-icon"){
-               this.className = 'fa fa-pause play-icon'
+            this.className = 'fa fa-pause play-icon'
                //$("#audio").trigger('play');
                //audio.play()
-               togglePlayPause()
+            togglePlayPause()
  
      }else{
            this.className = 'fa fa-play play-icon'

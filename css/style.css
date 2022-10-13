@@ -26,7 +26,9 @@ body {
     height:100vh;
     width:100vw;
     background-color: var(--bg-primary);
-    overflow-y: hidden;  
+    overflow-y: hidden;
+    /* overflow-x: none; */
+      
 }
 /*********************************** Main content style   ********************************/
 main {
@@ -155,7 +157,7 @@ footer {
 .menu-btn.open .menu-btn__burger::after {
     transform: rotate(-45deg) translate(35px, 35px);
 }
-
+/****************************************** search  ****************************************************/
 .search-container {
     display: flex;
     justify-content: flex-end;
@@ -249,12 +251,6 @@ footer {
     height: 50px;
     border-radius: 50%;
 }
-
-.avatar:hover {
-    border: 2px solid rgba(0, 136, 169, 1);
-}
-
-
 /******************************* Navbar verticali ****************************************/
 
 .navbar-vrt {
@@ -326,10 +322,9 @@ footer {
     width: 3rem;
     min-width: 3rem; 
     margin: 0 1rem;
-}
-.nav-link svg {
     color: #000000;
 }
+
 .content-option {
     display: flex;
     height: 100%;
@@ -459,7 +454,7 @@ footer {
       bottom: 0;
       width: 100vw;
       height: 4rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.9);
+      /* border-top: 1px solid rgba(0, 0, 0, 0.9); */
     }
   
     .logo {
@@ -469,7 +464,10 @@ footer {
     .navbar-vrt-nav  {
       flex-direction: row;
     } 
-    .nav-link {justify-content: center; }
+    .nav-link {
+        justify-content: center;
+        height: 4rem; 
+    }
     main {
       margin: 0;
       padding: 0;

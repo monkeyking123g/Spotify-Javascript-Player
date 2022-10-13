@@ -38,13 +38,14 @@ $(document).ready(function(){
     const onclickTreks = async function () {
         const token = await getToken();
         linkTracksSpotify = this.getElementsByTagName('a')
+        const playlistName = $(this).find('span').text()
         const tracks = await getTracks(token, linkTracksSpotify[0].href)
         $("#contents").empty()
         $("#contents").append(`
             <div class="playlist">
                 <div class="container-playlist">
                         
-                    <span class="playlist-name">${$(this).find('span').text()}</span>
+                    <span class="playlist-name">${playlistName}<span class="traks-number"></span></span>
                     <div class="playlist-content">
                         
                         <div class="playlist-item">
@@ -57,6 +58,7 @@ $(document).ready(function(){
             </div>
             `)
         let  i = 0
+        
         const titlePlaylist = $(this).find('span').text()
         
         tracks.forEach(async(el) => {
@@ -86,7 +88,11 @@ $(document).ready(function(){
                 `)
                 document.getElementById(i).onclick = onClickPlayGenres
                 i += 1
-            } 
-        }) 
+                
+                document.querySelector('.traks-number').innerHTML = `${i}`
+                
+            }
+            
+        })
     }   
 })

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/track.css"> -->
     <!-- <link rel="stylesheet" href="css/form.css"> -->
     <link rel="stylesheet" href="scss/player.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./scss/style.css">
     
     <title>Document</title>
     <link rel="shortcut icon" href="#">
@@ -143,12 +143,14 @@
 
 
     <footer>
-        <div class="cover-footer">
+        <!-- <div class="cover-footer">
             <img src="./img/cyberpank.jpg" alt="" class="cover">
-        </div>
-        <div class="test">
-            <audio controls id="audio">
-                <source src="" type="audio/mpeg" id="source">
+        </div> -->
+        <div class="main-footer">
+            <audio  controls="controls" id="audio">
+                <!-- <source src="" type="audio/mpeg" id="source"> -->
+                <source src="" type="audio/ogg" id="source">
+                <source src="" type="audio/mp3" id="source1">
             </audio>
             <div class="audio-player">
                 <canvas height="50" width="480"></canvas>
@@ -160,7 +162,7 @@
                     <input type="range" class="seekbar"></input>
                     <i class="fa fa-volume-down white"></i>
                     <input type="range" class="volume"></input>
-                    <i class="fa fa-download white"></i>
+                    <i id="dowland-track" href="javascript:" onclick="saveAs(this.href)" class="fa fa-download white"></i>
                 </div>
             </div>
             <div class="name-album-text">

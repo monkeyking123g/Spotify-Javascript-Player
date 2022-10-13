@@ -103,13 +103,13 @@
     font-size: 23px;
     color: #0077ff 
 } 
-
+/* 
 @media only screen and (max-width: 700px) {
   #track-main  {
     justify-content: center;
     align-items: center;
 
-    /* justify-content: space-around; */
+     justify-content: space-around; 
   }
 
-}
+} */

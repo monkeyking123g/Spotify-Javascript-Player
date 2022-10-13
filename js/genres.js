@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#contents").append(`
         <div class="playlist">
             <div class="container-playlist">    
-                <span class="playlist-name">${$(this).find('span').text()}</span>
+                <span class="playlist-name">${$(this).find('span').text()}<span class="traks-number"></span></span>
                 <div class="playlist-content">
                     <div class="playlist-item">
                         <ul>
@@ -45,6 +45,7 @@ $(document).ready(function(){
             `)
             document.getElementById(i).onclick = onClickPlayGenres
             i += 1
+            document.querySelector('.traks-number').innerHTML = `${i}`
         }
     })
   }
